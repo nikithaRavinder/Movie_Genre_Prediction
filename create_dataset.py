@@ -6,7 +6,7 @@ import json
 data = {}
 data_value = []
 master_dict = {}
-genre_name_list =
+
 
 
 with open("MovieSummaries/plot_summaries.txt", "r") as f_plots:
