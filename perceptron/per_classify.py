@@ -1,3 +1,4 @@
+__author__ = "Megha Sharma"
 import sys
 import os
 import json
@@ -42,6 +43,7 @@ for dirpath, dirs, files in os.walk(dirname):
                     i = 1
                 res[label][i][j] += 1
 
+
 wname = "per_output.txt"
 wfile = open(wname, 'w+',encoding="latin1")
 wfile.write(st)
@@ -57,5 +59,6 @@ for label in labels:
     hprec = res[label][0][0] / (res[label][0][0] + res[label][1][0])
     hrec = res[label][0][0] / (res[label][0][0] + res[label][0][1])
     hfsc = 2 * hprec * hrec / (hprec + hrec)
-    print("\n"+label+ "1.d precision: "+str(hprec)+"\n1e. recall: "+ str(hrec) + "\n1f. F1 score: "+str(hfsc))
+    print("\n" + label + "\nprecision: " + str(hprec) + "\nrecall: " + str(hrec) + "\nscore: " + str(
+        hfsc))
 

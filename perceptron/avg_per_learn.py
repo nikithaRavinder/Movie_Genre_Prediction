@@ -1,3 +1,4 @@
+__author__ = "Megha Sharma"
 import sys
 import os
 import json
@@ -8,7 +9,8 @@ import re
 
 def strip_nonalnum_re(word):
     return re.sub(r"^\W+|\W+$", "", word)
-#from nltk.stem import PorterStemmer
+
+
 x = {}
 #dirname = "Genres"
 dirname = "Data/Train"
@@ -18,8 +20,6 @@ for dirpath, dirs, files in os.walk(dirname):
     for filename in files:
         if filename[filename.rfind(".") + 1:] == "txt":
             i = filename
-            start = filename.rfind("_")
-            end = filename.rfind(".")
             x[i] = {}
             fname = os.path.join(dirpath, filename)
             f = open(fname, "r", encoding="latin1")
@@ -35,7 +35,7 @@ for dirpath, dirs, files in os.walk(dirname):
                 else:
                     x[i][token] += 1
 #print(str(x[5173]))
-x = tfidf.tfidf(x)
+x, idf, sq = tfidf.tfidf(x)
 model = {}
 labels = ["Comedy", "Romance", "Drama", "Horror", "Science_Fiction"]
 for label in labels:
